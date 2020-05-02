@@ -1,0 +1,78 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 10vmin);
+    grid-template-rows: repeat(3, 10vmin);
+    
+}
+
+#c0r2 {
+    border-style: none solid solid none;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c0r1 {
+    border-style: none solid none none;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c0r0 {
+    border-style: solid solid none none;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c1r2 {
+    border-style: none none solid none;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c1r1 {
+    border-style: none;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c1r0 {
+    border-style: solid none none none;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c2r2 {
+    border-style: none none solid solid;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c2r1 {
+    border-style: none none none solid;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+#c2r0 {
+    border-style: solid none none solid;
+    border-right-color: black;
+    border-bottom-color: black;
+}
+
+.button {
+    margin: 50px;
+}
