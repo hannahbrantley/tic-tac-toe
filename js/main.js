@@ -22,7 +22,7 @@ document.getElementById('board')
     .addEventListener('click', handleClick);
 
 document.querySelector('button')
-    .addEventListener('click', init);
+    .addEventListener('click', reset);
 
 /*----- functions -----*/
 init();
@@ -42,15 +42,15 @@ function init() {
 function handleClick(event) {
   const arrIdx = parseInt(event.target.className.slice(3));
   const Idx = parseInt(event.target.id.slice(3)); 
-  console.log(event.target);
-  console.log(arrIdx + Idx);
+  // console.log(event.target);
+  // console.log(arrIdx + Idx);
  if (board[arrIdx][Idx] === 0){
     board[arrIdx][Idx] += turn;
     event.target.innerText = playerLookup[turn];
     turn *= -1;
 }
-// getWinner(arrIdx, Idx);
-// console.log(board);
+getWinner(arrIdx, Idx);
+render();
 };
 
 function getWinner(arrIdx, Idx) {
@@ -68,7 +68,8 @@ function checkAcross(arrIdx) {
     })
     // console.log(sum);
     if (Math.abs(sum) === 3) {
-        alert('winner');
+        alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
+        reset();
       } else {
         return null;
       }
@@ -77,28 +78,47 @@ function checkAcross(arrIdx) {
 function checkUp(Idx) {
     let sum = 0;
     if (Math.abs(board[0][Idx] + board[1][Idx] + board[2][Idx]) === 3) {
-        alert('winnerUp');
+        alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
+        reset();
     } else {
       return null;
     }
 }
 
-function checkDiag(arrIdx, Idx) {
-    let x = 0; 
+function checkDiag(a, i) {
+    const arrIdx = parseInt(a);
+    const Idx = parseInt(i);
     if (arrIdx === Idx){
+        let x = 0; 
         board.forEach(function(arrIdx, Idx){
         x += arrIdx[Idx];  
         })
         if (Math.abs(x) === 3){
-            alert('winnerDiag');
+            alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
+            reset();
         }
     } 
-    if (arrIdx + Idx === 2){
-       for (let i = 0; i < board.length; i++) {
-       console.log(board[arrIdx + i][2 - arrIdx]);
-       }
-  }
+    if (arrIdx + Idx === 2){ 
+        //console.log(board[arrIdx][Idx]);
+        let z = 0;
+        for (let i = 0; i < board.length; i++) {
+            z += board[i][2 - i];
+            }
+        if (Math.abs(z) === 3){
+            alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
+            reset();
+            }
+    }
  }
+
+ function reset(){
+    init();
+    divEls.forEach(function(i){
+        i.forEach(function(div){
+            div.innerText = '';
+        })
+    })
+}
 
 
 render();
@@ -107,5 +127,5 @@ render();
 
 function render(){
     console.log('rendered');
-    msgEl.innerHTML = `<span style="color: ${playerLookup[turn]}">${playerLookup[turn].toUpperCase()}'s</span> Turn`;
+    msgEl.innerHTML = `${playerLookup[turn].toUpperCase()}'s Turn`;
 };

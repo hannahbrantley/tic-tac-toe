@@ -19,55 +19,55 @@
     
 }
 
-#c0r2 {
+#a0i0 {
     border-style: none solid solid none;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c0r1 {
+#a1i0 {
     border-style: none solid none none;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c0r0 {
+#a2i0 {
     border-style: solid solid none none;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c1r2 {
+#a0i1 {
     border-style: none none solid none;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c1r1 {
+#a1i1 {
     border-style: none;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c1r0 {
+#a2i1 {
     border-style: solid none none none;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c2r2 {
+#a0i2 {
     border-style: none none solid solid;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c2r1 {
+#a1i2 {
     border-style: none none none solid;
     border-right-color: black;
     border-bottom-color: black;
 }
 
-#c2r0 {
+#a2i2 {
     border-style: solid none none solid;
     border-right-color: black;
     border-bottom-color: black;
