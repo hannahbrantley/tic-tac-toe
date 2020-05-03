@@ -12,17 +12,20 @@
     font-family: 'Open Sans', sans-serif;
   }
 
+
 #board {
     display: grid;
     grid-template-columns: repeat(3, 10vmin);
     grid-template-rows: repeat(3, 10vmin);
-    
+    text-align: center;
 }
+
 
 #a0i0 {
     border-style: none solid solid none;
     border-right-color: black;
     border-bottom-color: black;
+    align-items: center;
 }
 
 #a1i0 {

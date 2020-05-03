@@ -33,7 +33,6 @@ function init() {
       [0, 0, 0], // Array 1
       [0, 0, 0]  // Array 2
   ];
-  //okay maybe it has to be array of arrays so 3, 4, 5 doesn't = winner 
   turn = -1;
   winner = null;
   render();
@@ -54,7 +53,6 @@ render();
 };
 
 function getWinner(arrIdx, Idx) {
-//   for (let i = 0; i <= board.length; i++) {
 checkUp(Idx);
 checkAcross(arrIdx);
 checkDiag(arrIdx, Idx);
@@ -68,8 +66,7 @@ function checkAcross(arrIdx) {
     })
     // console.log(sum);
     if (Math.abs(sum) === 3) {
-        alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
-        reset();
+        showWinner();
       } else {
         return null;
       }
@@ -78,8 +75,7 @@ function checkAcross(arrIdx) {
 function checkUp(Idx) {
     let sum = 0;
     if (Math.abs(board[0][Idx] + board[1][Idx] + board[2][Idx]) === 3) {
-        alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
-        reset();
+        showWinner();
     } else {
       return null;
     }
@@ -94,8 +90,7 @@ function checkDiag(a, i) {
         x += arrIdx[Idx];  
         })
         if (Math.abs(x) === 3){
-            alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
-            reset();
+            showWinner();
         }
     } 
     if (arrIdx + Idx === 2){ 
@@ -105,8 +100,7 @@ function checkDiag(a, i) {
             z += board[i][2 - i];
             }
         if (Math.abs(z) === 3){
-            alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
-            reset();
+            showWinner();
             }
     }
  }
@@ -121,11 +115,13 @@ function checkDiag(a, i) {
 }
 
 
-render();
-
-
+function showWinner() {
+    alert(`${playerLookup[turn *= -1].toUpperCase()} WINS!`);
+    reset();
+}
 
 function render(){
     console.log('rendered');
     msgEl.innerHTML = `${playerLookup[turn].toUpperCase()}'s Turn`;
 };
+
